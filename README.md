@@ -18,9 +18,9 @@ Run `./start_my_app.sh`
 Run `./stop_my_app.sh`
 
 ## Links
-[Go-birds-Web](https://go-birds-47fkf6rhuq-uc.a.run.app) Golang docker image + Cloud Run
-[Go-birds-Api](https://go-birds-api-47fkf6rhuq-uc.a.run.app) Golang docker image + Cloud Run
-[Go-birds-Api-Gateway](https://api-gateway-47fkf6rhuq-uc.a.run.app) ESPv2 docker image + Cloud Run + Cloud Endpoint
+* [Go-birds-Web](https://go-birds-47fkf6rhuq-uc.a.run.app) Golang docker image + Cloud Run
+* [Go-birds-Api](https://go-birds-api-47fkf6rhuq-uc.a.run.app) Golang docker image + Cloud Run
+* [Go-birds-Api-Gateway](https://api-gateway-47fkf6rhuq-uc.a.run.app) ESPv2 docker image + Cloud Run + Cloud Endpoint
 
 ## API usage
 
