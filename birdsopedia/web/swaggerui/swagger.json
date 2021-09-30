@@ -1,0 +1,210 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Birds ApiGateway",
+    "description": "Sample API on Cloud Endpoints with a Cloud Run backend",
+    "version": "1.0.0"
+  },
+  "host": "go-birds-47fkf6rhuq-uc.a.run.app",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "x-google-backend": {
+    "address": "https://go-birds-api-47fkf6rhuq-uc.a.run.app",
+    "protocol": "h2"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "API Front page",
+        "operationId": "listApi",
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/birds/{id}": {
+      "put": {
+        "summary": "Update Bird",
+        "operationId": "updateBird",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Bird ID",
+            "type": "string",
+            "format": "uuid",
+            "required": true
+          },
+          {
+            "name": "bird",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/BirdRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bird Response",
+            "schema": {
+              "$ref": "#/definitions/Bird"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Bird",
+        "operationId": "deleteBird",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Bird ID",
+            "type": "string",
+            "format": "uuid",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bird Response",
+            "schema": {
+              "$ref": "#/definitions/BirdDeletionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/birds": {
+      "get": {
+        "summary": "Get all birds",
+        "operationId": "getAllBirds",
+        "responses": {
+          "200": {
+            "description": "Array of Birds",
+            "schema": {
+              "$ref": "#/definitions/Birds"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new Bird",
+        "operationId": "addNewBird",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bird",
+            "schema": {
+              "$ref": "#/definitions/BirdRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bird Response",
+            "schema": {
+              "$ref": "#/definitions/Bird"
+            }
+          }
+        }
+      }
+    },
+    "/ping": {
+      "get": {
+        "summary": "Check connectivity",
+        "operationId": "test",
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BirdDeletionResponse": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "BirdRequest": {
+      "type": "object",
+      "required": [
+        "species",
+        "description"
+      ],
+      "properties": {
+        "species": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Bird": {
+      "type": "object",
+      "required": [
+        "id",
+        "species",
+        "description"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "species": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Birds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Bird"
+      }
+    }
+  }
+}

@@ -13,3 +13,10 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+.idea
+*.iml
+**.lock.hcl
+terraform/.terraform
+service-account-gcp-app.json
+/db_backup.txt
