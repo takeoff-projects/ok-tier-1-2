@@ -5,7 +5,7 @@
     "description": "Sample API on Cloud Endpoints with a Cloud Run backend",
     "version": "1.0.0"
   },
-  "host": "go-birds-47fkf6rhuq-uc.a.run.app",
+  "host": "go-birds-api-47fkf6rhuq-uc.a.run.app",
   "schemes": [
     "https"
   ],

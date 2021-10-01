@@ -155,14 +155,6 @@ func (app *Application) newRouter() *mux.Router {
 	router.HandleFunc("/edit/{id}", app.editHandler)
 	router.HandleFunc("/delete/{id}", app.deleteHandler)
 
-	router.HandleFunc("/swagger", func(res http.ResponseWriter, req *http.Request) {
-		http.ServeFile(res, req, "swaggerui/swagger.json")
-	})
-
-	staticServer := http.FileServer(http.Dir("swaggerui"))
-	sh := http.StripPrefix("/swaggerui/", staticServer)
-	router.PathPrefix("/swaggerui/").Handler(sh)
-
 	return router
 }
 

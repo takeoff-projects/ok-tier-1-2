@@ -85,6 +85,14 @@ func (app *Application) newRouter() *mux.Router {
 	router.HandleFunc("/birds/{id}", app.editHandler).Methods("PUT")
 	router.HandleFunc("/birds/{id}", app.deleteHandler).Methods("DELETE")
 
+	router.HandleFunc("/swagger", func(res http.ResponseWriter, req *http.Request) {
+		http.ServeFile(res, req, "swaggerui/swagger.json")
+	})
+
+	staticServer := http.FileServer(http.Dir("swaggerui"))
+	sh := http.StripPrefix("/swaggerui/", staticServer)
+	router.PathPrefix("/swaggerui/").Handler(sh)
+
 	return router
 }
 

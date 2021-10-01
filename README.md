@@ -24,7 +24,7 @@ Run `./stop_my_app.sh`
 
 ## API usage
 
-[API contract](https://go-birds-47fkf6rhuq-uc.a.run.app/swaggerui/)
+[API contract](https://go-birds-api-47fkf6rhuq-uc.a.run.app/swaggerui/)
 
 ## Usage example
 

@@ -15,6 +15,25 @@ x-google-backend:
   address: https://go-birds-api-47fkf6rhuq-uc.a.run.app
   protocol: h2
 paths:
+  /swagger:
+    get:
+      summary: Swagger JSON
+      operationId: listSwagger
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+
+  /swaggerui:
+    get:
+      summary: Swagger UI
+      operationId: uiSwagger
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
   /:
     get:
       summary: API Front page
